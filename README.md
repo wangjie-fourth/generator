@@ -11,3 +11,12 @@ docker run -p 3306:3306 --name generatorMysql \
     -e MYSQL_ROOT_PASSWORD=root  \
     -d mysql:5.7
 ```
+
+(2)进入数据库，并创建数据
+```sql
+docker exec -it generatorMysql mysql -uroot -p
+```
+输入密码：root
+```sql
+CREATE DATABASE generator_test character set utf8;
+```
