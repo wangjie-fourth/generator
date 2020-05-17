@@ -20,3 +20,8 @@ docker exec -it generatorMysql mysql -uroot -p
 ```sql
 CREATE DATABASE generator_test character set utf8;
 ```
+
+（3）生成测试表
+```sql
+mvn flyway:migrate
+```

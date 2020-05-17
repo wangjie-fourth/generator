@@ -7,10 +7,15 @@ spring:
     password: root
   logging:
     level: debug
-
+  resources:
+    static-locations: classpath:/
+  mvc:
+    static-path-pattern: /**
 # Mybatis配置
 mybatis:
   mapperLocations: classpath:mapper/**/*.xml
 
-
+server:
+  servlet:
+    context-path: /
 
