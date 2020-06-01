@@ -18,28 +18,7 @@ import java.util.Map;
 public interface DataBaseInfoMapper {
 
 
-    /**
-     * 查询这个表的基本信息
-     *
-     * @param tableName 不含schema的表名
-     * @return  表的信息
-     */
-    Map<String, String> queryTable(String tableName);
 
-    /**
-     * 查询这个表的所有列信息
-     *
-     * @param tableName 不含schema的表名
-     * @return  表的所有列信息
-     */
-    List<Map<String, String>> queryColumns(String tableName);
 
-    /**
-     * 查询这个数据库的所有表，除去flyway表
-     *
-     * @param map   查询条件
-     * @return      数据库表的所有信息
-     */
-    List<Map<String, Object>> queryTableList(Map<String, Object> map);
 
 }

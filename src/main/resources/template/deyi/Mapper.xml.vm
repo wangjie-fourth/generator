@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="${java.packagePrefix}.mapper.${java.className}Mapper">
+
+    <resultMap id="BaseResultMap" type="${java.packagePrefix}.bean.db.${java.className}">
+        #foreach($attr in $java.attrs)
+            #if ($attr.isPK)
+        <id column="${attr.columnName}" property="${attr.attrName}" jdbcType="${attr.jdbcType}"/>
+            #else
+        <result column="${attr.columnName}" property="${attr.attrName}" jdbcType="${attr.jdbcType}"/>
+            #end
+        #end
+    </resultMap>
+
+
+    <update id="updateSelectiveById" parameterType="${java.packagePrefix}.bean.db.${java.className}">
+        UPDATE `${java.tableName}`
+        <set>
+            #foreach($attr in $java.attrs)
+                #if ($attr.isPK == false)
+            <if test="${attr.attrName} != null">
+                ${attr.columnName} =  #{${attr.attrName},jdbcType=${attr.jdbcType}},
+            </if>
+                #end
+            #end
+        </set>
+        #foreach($attr in $java.attrs)
+        #if ($attr.isPK)
+        where ${attr.columnName} =  #{${attr.attrName},jdbcType=${attr.jdbcType}}
+        #end
+        #end
+    </update>
+
+    <select id="selectById" resultMap="BaseResultMap">
+
+    </select>
+    
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" useGeneratedKeys="true" parameterType="${java.packagePrefix}.bean.db.${java.className}">
+        
+    </insert>
+    
+    <insert id="insertList" keyColumn="id" keyProperty="id" useGeneratedKeys="true" parameterType="list">
+
+    </insert>
+
+    <update id="updateList" parameterType="list">
+
+    </update>
+
+</mapper>
