@@ -23,5 +23,22 @@ public interface ${java.className}Mapper  {
      * 批量添加数据
      */
     int insertList(List<${java.className}> ${java.paramName}List);
+
+    /**
+     * 查询符合条件的数据个数
+     */
+    int countBySelective(${java.className} ${java.paramName});
+
+    /**
+     * 分页查询数据
+     */
+    List<${java.className}> listByPage(${java.className}DTO ${java.paramName}DTO);
+
+    /**
+     * 获取符合条件的数据
+     */
+    List<${java.className}> getBySelective(${java.className} ${java.paramName});
+
+
 }
 

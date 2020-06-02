@@ -114,6 +114,7 @@ public class DeYiProjectGeneratorServiceImpl implements ProjectGeneratorService 
             attr.setPK(column.getColumnName().equals("id"));
             attrsMapList.add(attr);
         }
+        context.put("attrs",attrsMapList);
     }
 
     static {

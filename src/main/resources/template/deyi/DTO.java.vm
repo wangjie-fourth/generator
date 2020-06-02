@@ -21,8 +21,18 @@ import ${java.packagePrefix}.bean.db.${java.className};
 public class ${java.className}DTO extends ${java.className} {
 
     /**
+     * 批量查询参数
+     */
+    private List<String> batchQueryList;
+
+    /**
      * 分页信息
      */
     private Pagination pagination;
+
+    /**
+     * 列表数据
+     */
+    private List<${java.className}DTO> ${java.paramName}DTOList;
 
 }

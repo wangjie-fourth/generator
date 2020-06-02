@@ -21,7 +21,7 @@ public class ${java.className} extends DbEntity {
     //
     // 数据库字段
     // ------------------------------------------------------------------------------
-#foreach( $attr in $java.attrs )
+#foreach( $attr in $attrs )
 
     /**
      * $attr.attrNote
